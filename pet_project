@@ -1,0 +1,44 @@
+-- Database: Owners pets
+
+-- DROP DATABASE "Owners pets";
+
+CREATE DATABASE "Owners pets"
+    WITH 
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'English_United States.1252'
+    LC_CTYPE = 'English_United States.1252'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1;
+	
+	
+	CREATE TABLE owners_pets(
+	
+		id_table INT PRIMARY KEY,
+		first_name VARCHAR (30),
+		last_name VARCHAR (30),
+		city VARCHAR (30),
+		state_table CHAR (2)
+	);
+	
+	SELECT * FROM owners_pets;
+	
+
+	CREATE TABLE pets_table(
+		id_table_pets INT,
+		species VARCHAR (30),
+		full_name VARCHAR (30),
+		age INT,
+		owner_id INT REFERENCES owners_pets(id_table)
+);
+	
+		SELECT * FROM pets_table
+	
+	
+	
+	
+ALTER TABLE owners_pets
+ADD email VARCHAR (50);
+
+ALTER TABLE owners_pets
+ALTER COLUMN last_name TYPE VARCHAR (50);
